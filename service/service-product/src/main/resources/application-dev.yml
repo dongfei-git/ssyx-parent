@@ -1,0 +1,42 @@
+server:
+  port: 8203
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-enums-package: tech.dongfei.ssyx.enums
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.10.93.58:3306/shequ-product?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
+
+  rabbitmq:
+    host: 10.10.93.58
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: CORRELATED  #发布确认模式，消息是否被成功发送到交换机
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        concurrency: 3
+        acknowledge-mode: manual   #消费端手动确认
+
+minio:
+  endpoint: http://10.10.93.58:9000
+  accessKey: 0TWJUKN7CO1ON6N8N5SI
+  secretKey: WsPFP8zet6BfZm6EY+uKQUjjzY+uElwS+BThe+kN
+  bucketName: ssyx
