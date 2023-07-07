@@ -24,7 +24,6 @@ import tech.dongfei.ssyx.vo.sys.RegionWareQueryVo;
 @Api(tags = "开通区域接口")
 @RestController
 @RequestMapping("/admin/sys/regionWare")
-@CrossOrigin
 public class RegionWareController {
 
     @Autowired

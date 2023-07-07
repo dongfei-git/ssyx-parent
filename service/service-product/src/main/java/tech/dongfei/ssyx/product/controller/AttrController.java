@@ -23,7 +23,6 @@ import java.util.List;
 @Api(tags = "商品属性接口")
 @RestController
 @RequestMapping("/admin/product/attr")
-@CrossOrigin
 public class AttrController {
 
     @Autowired

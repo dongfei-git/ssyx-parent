@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import tech.dongfei.ssyx.activity.service.CouponInfoService;
 import tech.dongfei.ssyx.common.result.Result;
 import tech.dongfei.ssyx.model.activity.CouponInfo;
+import tech.dongfei.ssyx.vo.activity.CouponRuleVo;
 
 import java.util.Map;
 
@@ -24,7 +25,6 @@ import java.util.Map;
 @Api(tags = "优惠卷接口")
 @RestController
 @RequestMapping("/admin/activity/couponInfo")
-@CrossOrigin
 public class CouponInfoController {
 
     @Autowired
@@ -54,6 +54,12 @@ public class CouponInfoController {
         Map<String, Object> map =
                 couponInfoService.findCouponRuleList(id);
         return Result.ok(map);
+    }
+
+    @PostMapping("/saveCouponRule")
+    public Result saveCouponRule(@RequestBody CouponRuleVo couponRuleVo) {
+        couponInfoService.saveCouponRule(couponRuleVo);
+        return Result.ok(null);
     }
 }
 

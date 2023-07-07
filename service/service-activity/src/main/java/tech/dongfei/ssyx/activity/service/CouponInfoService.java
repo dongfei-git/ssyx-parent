@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import tech.dongfei.ssyx.model.activity.CouponInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import tech.dongfei.ssyx.vo.activity.CouponRuleVo;
 
 import java.util.Map;
 
@@ -22,4 +23,6 @@ public interface CouponInfoService extends IService<CouponInfo> {
     CouponInfo getCouponInfo(Long id);
 
     Map<String, Object> findCouponRuleList(Long id);
+
+    void saveCouponRule(CouponRuleVo couponRuleVo);
 }

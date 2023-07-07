@@ -1,7 +1,6 @@
 package tech.dongfei.ssyx.client.product;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,4 +24,7 @@ public interface ProductFeignClient {
 
     @GetMapping("/api/product/inner/findSkuInfoByKeyword/{keyword}")
     List<SkuInfo> findSkuInfoByKeyword(@PathVariable("keyword") String keyword);
+
+    @PostMapping("/api/product/inner/findCategoryList")
+    List<Category> findCategoryList(List<Long> rangeIdList);
 }
